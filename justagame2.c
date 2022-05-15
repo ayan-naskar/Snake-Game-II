@@ -24,12 +24,6 @@ void show(int *p,int head)
 		printf("#");
 		for(j=0;j<10;j++)
 		{	
-			/*if(x==i && y==j)
-				printf(" @");
-			else if(*(p+j+5*i)==0)
-				printf(" x");
-			else if(*(p+j+5*i)==2)
-				printf("  ");}*/
 			if(*(p+j+10*i)==0)
 				printf("  ");
 			else
@@ -44,7 +38,7 @@ void show(int *p,int head)
 			}
 		}
 		printf(" #\n");
-	}//printf("w");
+	}
 	printf("# # # # # # # # # # # #\n");
 }
 
@@ -91,7 +85,6 @@ int main()
 	int points=0;
 	i=(int)rand()%10;
 	j=(int)rand()%10;
-	//printf("%d %d",i,j);
 	initializezero(arr);
 	arr[10*x+y]=1;
 	arr[10*i+j]=-1;
@@ -100,14 +93,10 @@ int main()
 	getch();
 	while(1)
 	{
-		//printf("\f");
 		system("cls");
 		printf("WORST SNAKE GAME EVER\n");
 		printf("~~~~~~~~~~~~~~~~~~~~~\n\n");
 		show(arr,head);
-		//key=getch();
-		//key2=getch();
-		//arr[10*x+y]=0;
 		FLAGX=FLAGY=0;
 		if(GetAsyncKeyState(VK_UP))//(key==-32 && key2==72)
 			FLAGX=-1;
@@ -146,7 +135,6 @@ int main()
 			points++;
 			arr[10*i+j]=-1;
 			continue;
-			//goto there;
 		}
 		if(arr[10*x+y]>0)
 		{
@@ -160,17 +148,6 @@ int main()
 		}
 
 		arr[10*x+y]=head;
-		//end=clock();
-		/*there:if(end-start>1000.0)
-		{
-			system("cls");
-			printf("GAME OVER!!");
-			printf("\n~~~~~~~~~~~\n\n");
-			show(arr,head);
-			printf("\nYour snaked choked to death. Please try to instruct the snake faster!");
-			printf("\nYour Score is: %d",head);
-			goto thatplace;
-		}*/
 	}
 	thatplace:f=fopen("Scoreboard.txt","r");
 	if(f==NULL)
@@ -194,7 +171,6 @@ int main()
 		}
 		fclose(f);
 	}
-	//for(i=0;i<1000000;i++)printf("");
 	Sleep(8000);
 	printf("\n\n\nPress any key to continue...");
 	getch();
