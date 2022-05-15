@@ -39,6 +39,7 @@
 # Debug files
 *.dSYM/
 *.exe
+*.txt
 *.su
 *.idb
 *.pdb
