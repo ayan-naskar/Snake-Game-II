@@ -84,12 +84,9 @@ int main()
 {
 	int FLAGX,FLAGY,FLAG_X=1,FLAG_Y=0;
 	FILE *f;
-	int timer;
-	clock_t start,end;
 	int arr[100],i,j,trv,oldhihead;
 	int head=1;
 	srand(time(0));
-	char key,key2;
 	int x=5,y=5;
 	int points=0;
 	i=(int)rand()%10;
@@ -98,15 +95,11 @@ int main()
 	initializezero(arr);
 	arr[10*x+y]=1;
 	arr[10*i+j]=-1;
-	//timer=gettimert();
 	system("cls");
 	printf("Press any key to start");
-	key=getch();
-	if(key==-32)
-	key=getch();
+	getch();
 	while(1)
 	{
-		start=clock();
 		//printf("\f");
 		system("cls");
 		printf("WORST SNAKE GAME EVER\n");
@@ -204,8 +197,6 @@ int main()
 	//for(i=0;i<1000000;i++)printf("");
 	Sleep(8000);
 	printf("\n\n\nPress any key to continue...");
-	key=getch();
-	if(key==-32)
-		getch();
+	getch();
 	system("Justagame2.exe 5434 localhost");
 }
