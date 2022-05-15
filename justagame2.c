@@ -4,7 +4,7 @@
 #include<conio.h>
 #include<windows.h>
 //---------------------------------------------
-// REMEMBER TO NAME THE THIS FILE Justagame2.c ELSE THE PROGRAM WILL NOT BE ABLE TO CALL ITSELF
+// REMEMBER TO NAME THE THIS FILE justagame2.c ELSE THE PROGRAM WILL NOT BE ABLE TO CALL ITSELF
 //---------------------------------------------
 
 void initializezero(int *p)
@@ -40,38 +40,6 @@ void show(int *p,int head)
 		printf(" #\n");
 	}
 	printf("# # # # # # # # # # # #\n");
-}
-
-int gettimert()
-{
-	int x=500;
-	char a,b;
-	while(1)
-	{
-		system("cls");
-		printf("Select the time for which the snake can live without choking\n");
-		printf("<%d millisecs>",x);
-		click:a=getch();
-		if(a==13)
-		{
-			return x;
-		}
-		else if(a==-32)
-		{
-			b=getch();
-			if(b==75)
-				x-=500;
-			else if(b==77)
-				x+=500;
-
-			if(x==0)
-			{
-				x=500;
-				printf("\nTime cannot be 0");
-				goto click;
-			}
-		}
-	}
 }
 
 int main()
@@ -163,6 +131,8 @@ int main()
 		if(head>oldhihead)
 		{
 			printf("\nThis is your new high score: %d",head);
+			fclose(f);
+			f=fopen("Scoreboard.txt","w");
 			fprintf(f,"%d",head);
 		}
 		else
@@ -174,5 +144,5 @@ int main()
 	Sleep(8000);
 	printf("\n\n\nPress any key to continue...");
 	getch();
-	system("Justagame2.exe 5434 localhost");
+	system("justagame2.exe 5434 localhost");
 }
